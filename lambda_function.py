@@ -26,7 +26,7 @@ def lambda_handler(event, context):
             print("Missing Slack URL")
             return {"statusCode": 500, "body": "Missing Slack URL"}
 
-        message = {"text": f"New GitHub issue created: {issue_url}"}
+        message = {"text": f"Issue Created: {issue_url}"}
 
         encoded_msg = json.dumps(message).encode("utf-8")
         response = http.request("POST", slack_url, body=encoded_msg, headers={"Content-Type": "application/json"})
